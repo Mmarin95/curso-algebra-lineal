@@ -1,0 +1,35 @@
+---
+title: "Prueba"
+author: "Miquel Marin"
+date: "14/5/2021"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+use_python("C:\\Users\\mmari\\anaconda3\\python.exe")
+
+```
+
+```{r}
+os <- import("os")
+os$listdir(".")
+```
+
+```{r}
+datos <- iris
+head(datos)
+datos_py <- r_to_py(datos)
+```
+
+
+```{python}
+import numpy as np
+import pandas as pd
+r.datos_py.head()
+```
+
